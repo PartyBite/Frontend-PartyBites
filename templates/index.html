@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>PartyBite</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <img src="https://logo-url" alt="Deliveroo Logo">
+        </div>
+
+        <!-- Menú para pantallas grandes -->
+        <ul class="navbar-links">
+            <li><a href="#">Get Started</a></li>
+            <li><a href="#">Business Type</a></li>
+            <li><a href="#">Services & Tools</a></li>
+            <li><a href="#">Support</a></li>
+        </ul>
+
+        <div class="navbar-buttons">
+            <a href="#" class="btn login">Log in</a>
+            <a href="#" class="btn partner">Become a partner</a>
+        </div>
+
+        <!-- Icono de menú hamburguesa para pantallas pequeñas -->
+        <div class="menu-icon" id="menu-icon">
+            &#9776; <!-- Este es el símbolo del icono hamburguesa -->
+        </div>
+    </nav>
+
+    <!-- Menú desplegable para pantallas pequeñas -->
+    <div class="mobile-menu" id="mobile-menu">
+        <ul>
+            <li><a href="#">Get Started</a></li>
+            <li><a href="#">Business Type</a></li>
+            <li><a href="#">Services & Tools</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#" class="btn login">Log in</a></li>
+            <li><a href="#" class="btn partner">Become a partner</a></li>
+        </ul>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Discover restaurants and more near you.</h1>
+            <div class="search-bar">
+                <span class="icon">&#128205;</span> <!-- Icono de ubicación -->
+                <input type="text" placeholder="Enter delivery address">
+                <button class="search-button">&#10132;</button> <!-- Icono de flecha -->
+            </div>
+            <button class="sign-in-button">
+                <span class="icon">&#128100;</span> Sign In
+            </button>
+        </div>
+    </section>
+    
+    <section class="info-section">
+        <div class="info-card">
+            <img src="/static/img/delivery.svg" alt="Dasher Image" class="info-image">
+            <h2>Become a Dasher</h2>
+            <p>As a delivery driver, make money and work on your schedule. Sign up in minutes.</p>
+            <a href="#" class="info-link">Start earning &rarr;</a>
+        </div>
+    
+        <div class="info-card">
+            <img src="/static/img/compra_tienda.svg" alt="Merchant Image" class="info-image">
+            <h2>Become a Merchant</h2>
+            <p>Attract new customers and grow sales, starting with 0% commissions for up to 30 days.</p>
+            <a href="#" class="info-link">Sign up for DoorDash &rarr;</a>
+        </div>
+    
+        <div class="info-card">
+            <img src="/static/img/compra_app.svg" alt="App Image" class="info-image">
+            <h2>Get the best DoorDash experience</h2>
+            <p>Experience the best your neighborhood has to offer, all in one app.</p>
+            <a href="#" class="info-link">Get the app &rarr;</a>
+        </div>
+    </section>
+    <section class="feature-section">
+        <div class="feature-content">
+            <div class="feature-text">
+                <h2>Everything you crave, delivered.</h2>
+                <h4>Your favorite local restaurants</h4>
+                <p>Get a slice of pizza or the whole pie delivered, or pick up house lo mein from the Chinese takeout spot you've been meaning to try.</p>
+                <a href="#" class="feature-button">Find restaurants</a>
+            </div>
+            <div class="feature-image">
+                <img src="/static/img/food.jpg" alt="Food Image">
+            </div>
+        </div>
+    </section>
+    <section class="dashpass-section">
+        <div class="dashpass-content">
+            <div class="dashpass-image">
+                <img src="/static/img/dashpass.jpg" alt="DashPass Food">
+            </div>
+            <div class="dashpass-text">
+                <h2>DashPass is delivery for less</h2>
+                <p>Members get a $0 delivery fee on DashPass orders, 5% back on pickup orders, and so much more. Plus, it's free for 30 days.</p>
+                <a href="#" class="dashpass-button">Get DashPass</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="grocery-section">
+        <div class="grocery-overlay">
+            <h2>Get grocery and convenience store essentials</h2>
+            <p>Grocery delivery, exactly how you want it.</p>
+            <p>Shop from home and fill your cart with fresh produce, frozen entrees, deli delights and more.</p>
+            <a href="#" class="grocery-button">Shop Groceries</a>
+        </div>
+    </section>
+    <!-- Sección centrada de "Unlocking opportunity" -->
+    <section class="opportunity-section">
+        <h2>Unlocking opportunity for Dashers and businesses</h2>
+    </section>
+
+    <!-- Sección con imagen y texto de "Sign up to dash" -->
+    <section class="signup-section">
+        <div class="signup-content">
+            <div class="signup-text">
+                <h2>Sign up to dash and get paid</h2>
+                <p>Deliver with the #1 Food and Drink App in the U.S. As a delivery driver, you'll make money and work on your schedule. Sign up in minutes.</p>
+                <a href="#" class="signup-button">Become a Dasher</a>
+            </div>
+            <div class="signup-image">
+                <img src="/static/img/dasher-signup.png" alt="Dasher Sign Up">
+            </div>
+        </div>
+    </section>
+    <!-- Sección de "Grow your business with DoorDash" -->
+    <section class="business-section">
+        <div class="business-content">
+            <div class="business-image">
+                <img src="/static/img/business-growth.png" alt="Grow your business">
+            </div>
+            <div class="business-text">
+                <h2>Grow your business with DoorDash</h2>
+                <p>Businesses large and small partner with DoorDash to reach new customers, increase order volume, and drive more sales.</p>
+                <a href="#" class="business-button">Become a Partner</a>
+            </div>
+        </div>
+    </section>
+    <section class="neighborhood-section">
+        <h2>Get more from your neighborhood</h2>
+        
+        <div class="tabs">
+            <button class="tablink active" onclick="openTab(event, 'cities')">Top Cities</button>
+            <button class="tablink" onclick="openTab(event, 'cuisines')">Top Cuisines</button>
+            <button class="tablink" onclick="openTab(event, 'chains')">Top Chains</button>
+        </div>
+    
+        <div id="cities" class="tabcontent active">
+            <div class="tab-list">
+                <ul>
+                    <li>New York</li>
+                    <li>Brooklyn</li>
+                    <li>Atlanta</li>
+                    <li>Los Angeles</li>
+                    <li>San Diego</li>
+                    <li>Queens</li>
+                </ul>
+                <ul>
+                    <li>Toronto</li>
+                    <li>Las Vegas</li>
+                    <li>Vancouver</li>
+                    <li>Chicago</li>
+                    <li>San Francisco</li>
+                    <li>Miami</li>
+                </ul>
+                <ul>
+                    <li>Houston</li>
+                    <li>Seattle</li>
+                    <li>San Antonio</li>
+                </ul>
+            </div>
+        </div>
+    
+        <div id="cuisines" class="tabcontent">
+            <p>Content for Top Cuisines...</p>
+        </div>
+    
+        <div id="chains" class="tabcontent">
+            <p>Content for Top Chains...</p>
+        </div>
+    </section>
+    <!-- Footer -->
+<footer class="footer-section">
+    <div class="footer-top">
+        <div class="footer-column">
+            <h4>Popular Categories</h4>
+            <ul>
+                <li>Alcohol Delivery</li>
+                <li>Back To School Delivery</li>
+                <li>Beauty Stores</li>
+                <li>Beauty Supply</li>
+                <li>Catering Near Me</li>
+                <li>Convenience Stores Canada</li>
+                <li>Dashmart Near Me</li>
+                <li>Deck The Doorstep</li>
+                <li>Drugstores Canada</li>
+                <li>Flower Delivery</li>
+                <li>Grocery Delivery Canada</li>
+                <li>Halloween</li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Get to Know Us</h4>
+            <ul>
+                <li>About Us</li>
+                <li>Careers</li>
+                <li>Investors</li>
+                <li>Company Blog</li>
+                <li>Engineering Blog</li>
+                <li>Merchant Blog</li>
+                <li>Gift Cards</li>
+                <li>Package Pickup</li>
+                <li>Promotions</li>
+                <li>Dasher Central</li>
+                <li>LinkedIn</li>
+                <li>Glassdoor</li>
+                <li>Accessibility</li>
+                <li>Newsroom</li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Let Us Help You</h4>
+            <ul>
+                <li>Account Details</li>
+                <li>Order History</li>
+                <li>Help</li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Doing Business</h4>
+            <ul>
+                <li>Become a Dasher</li>
+                <li>List Your Business</li>
+                <li>Get Dashers for Deliveries</li>
+                <li>Get DoorDash for Business</li>
+            </ul>
+        </div>
+        <div class="footer-column app-links">
+            <a href="#"><img src="/static/img/appstore.png" alt="App Store"></a>
+            <a href="#"><img src="/static/img/googleplay.png" alt="Google Play"></a>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <div class="footer-links">
+            <a href="#">Terms of Service</a>
+            <a href="#">Privacy</a>
+            <a href="#">Delivery Locations</a>
+            <a href="#">Do Not Sell or Share My Personal Information</a>
+        </div>
+        <div class="footer-rights">
+            <p>© 2024 DoorDash</p>
+        </div>
+        <div class="footer-social">
+            <a href="#"><img src="/static/img/facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="/static/img/twitter.png" alt="Twitter"></a>
+            <a href="#"><img src="/static/img/instagram.png" alt="Instagram"></a>
+        </div>
+        <div class="footer-language">
+            <select>
+                <option>English (US)</option>
+                <option>Español</option>
+            </select>
+        </div>
+    </div>
+</footer>
+
+    
+</body>
+</html>
