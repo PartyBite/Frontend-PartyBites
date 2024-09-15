@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Bienvenido, {{ nombre }}</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <img src="/static/img/logo.PNG" alt="PartyBite Logo" style="width: 150px; height: auto;">
+        </div>
+
+        <div class="user-dropdown">
+            <span class="user-name">{{ nombre }}</span>
+            <div class="dropdown-menu">
+                <a href="#">Inicio</a>
+                <a href="#">Mis direcciones</a>
+                <a href="#">Mis favoritos</a>
+                <a href="#">Mis pedidos</a>
+                <a href="#">Mi perfil</a>
+                <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <h1>Hola, {{ nombre }}! ¿Qué vas a pedir hoy?</h1>
+        <div class="categories">
+            <div class="category-card">
+                <img src="static/img/snacks.jpeg" alt="Snacks para fiestas">
+                <h3>Snacks para fiestas</h3>
+            </div>
+            <div class="category-card">
+                <img src="static/img/flores.jpeg" alt="Flores a domicilio">
+                <h3>Flores a domicilio</h3>
+            </div>
+            <div class="category-card">
+                <img src="static/img/bebidas.jpeg" alt="Bebidas alcohólicas">
+                <h3>Bebidas alcohólicas</h3>
+            </div>
+            <div class="category-card">
+                <img src="static/img/comida.jpeg" alt="Comida para fiestas">
+                <h3>Comida para fiestas</h3>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+
+    <script>
+        const userDropdown = document.querySelector('.user-name');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+
+        userDropdown.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

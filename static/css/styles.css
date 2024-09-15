@@ -13,20 +13,33 @@ body {
   font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif;
 }
 
-
-.navbar-links, .navbar-buttons {
+.navbar-buttons {
   display: flex;
-  gap: 20px;
+  gap: 10px;
 }
 
-.navbar-links {
-  list-style: none;
-}
-
-.navbar-links a, .navbar-buttons .btn {
-  text-decoration: none;
-  color: #000;
+.navbar-buttons .btn {
+  padding: 10px 20px;
+  border-radius: 20px;
   font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn.login {
+  background-color: transparent;
+  border: 2px solid #FF4500;
+  color: #FF4500;
+}
+
+.btn.register {
+  background-color: #FF4500;
+  border: 2px solid #FF4500;
+  color: white;
+}
+
+.btn.login:hover, .btn.register:hover {
+  opacity: 0.8;
 }
 
 /* Icono del menú hamburguesa */
@@ -44,43 +57,44 @@ body {
 
 /* Estilos para pantallas pequeñas */
 @media (max-width: 768px) {
-  .navbar-links, .navbar-buttons {
-      display: none; /* Esconder los enlaces y botones */
+  .navbar-buttons {
+    display: none; /* Esconder los botones */
   }
 
   .menu-icon {
-      display: block; /* Mostrar el icono hamburguesa */
+    display: block; /* Mostrar el icono hamburguesa */
   }
 
   .mobile-menu {
-      display: none;
-      background-color: #fff;
-      position: absolute;
-      top: 60px;
-      right: 0;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    background-color: #fff;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
 
   .mobile-menu ul {
-      list-style: none;
-      padding: 20px 0;
+    list-style: none;
+    padding: 20px 0;
   }
 
   .mobile-menu a {
-      display: block;
-      padding: 10px;
-      text-decoration: none;
-      color: #000;
-      font-weight: bold;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
   }
 
   .mobile-menu a.btn {
-      background-color: #00ccbc;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 5px;
+    background-color: #FF4500;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
   }
 }
 
@@ -149,6 +163,27 @@ body {
   font-size: 1.2rem;
   margin-right: 8px;
 }
+
+/* Estilos para botones en modo móvil */
+@media (max-width: 768px) {
+  .navbar-buttons {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .mobile-menu a {
+    display: block;
+    margin: 10px 0;
+  }
+}
+
 
 /* Sección de información */
 .info-section {
@@ -838,3 +873,155 @@ body {
   }
 }
 
+
+/* Estilo para las ventanas modales */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+}
+.modal-content select {
+  width: 100%; /* Asegurar que el ancho ocupe todo el contenedor */
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px; /* Espacio adicional entre los cuadros de texto */
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content input {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.modal-content button {
+  background-color: #FF4500;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%; /* Asegurar que el botón tenga el mismo tamaño que los cuadros de texto */
+  margin-top: 10px; /* Espacio entre el botón y el campo anterior */
+}
+
+.modal-content label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  display: block;
+}
+
+.modal-content button:hover {
+  opacity: 0.8;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/* Estilo para el dropdown del usuario */
+.user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.user-name {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  z-index: 1;
+  padding: 10px;
+  width: 200px; /* Ajusta el ancho del menú */
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  padding: 10px;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f1f1f1;
+}
+
+.show {
+  display: block;
+}
+
+
+/* Estilo para las categorías */
+.categories {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.category-card img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover; 
+  border-radius: 10px; 
+}
+
+.category-card {
+  display: inline-block;
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+}
+
+.category-card h3 {
+  font-size: 1.1rem;
+  color: #333;
+}
