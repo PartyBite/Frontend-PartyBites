@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Tienda de Bebidas Alcohólicas</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <img src="/static/img/logo.PNG" alt="PartyBite Logo" style="width: 150px; height: auto;">
+        </div>
+        <div class="user-dropdown">
+            <span class="user-name">{{ nombre }}</span>
+            <div class="dropdown-menu">
+                <a href="#">Mis direcciones</a>
+                <a href="#">Mis favoritos</a>
+                <a href="#">Mis pedidos</a>
+                <a href="#">Mi perfil</a>
+                <a href="{{ url_for('home') }}">Inicio</a>
+                <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="bebidas-section">
+        <h1>Tienda de Bebidas Alcohólicas</h1>
+        <div class="bebidas-container">
+            {% for bebida in bebidas %}
+            <div class="bebida-card">
+                <img src="{{ url_for('static', filename='img/' ~ bebida[3]) }}" alt="{{ bebida[0] }}" class="bebida-img">
+                <h2>{{ bebida[0] }}</h2>
+                <p>Descripción: {{ bebida[4] }}</p> <!-- Aquí se muestra la descripción de la bebida -->
+                <p>Precio: S/. {{ bebida[1] }}</p>
+                <p>Stock: {{ bebida[2] }}</p>
+                <form action="{{ url_for('agregar_carrito') }}" method="POST">
+                    <input type="hidden" name="nombre" value="{{ bebida[0] }}">
+                    <button type="submit" class="btn-add-cart">Agregar al carrito</button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <style>
+        .bebidas-section {
+            width: 100%;
+            height: auto; /* o 100% si quieres que ocupe toda la pantalla */
+            text-align: center;
+        }
+
+        .bebidas-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            background-color: #ff4c00;
+            text-align: center;
+            width: 100%;
+            padding: 50px 70px;
+        }
+
+        .bebida-card {
+            background-color: #fdfdfd;
+            border-radius: 8px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5); /* Sombra difuminada */
+        }
+
+        .bebida-img {
+            width: 100%; 
+            height: 200px; 
+            object-fit: cover; 
+            border-radius: 8px;
+        }
+        .btn-add-cart {
+            margin-top: 10px;
+            background-color: #30c853;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+
+        }
+        .btn-add-cart:hover {
+            background-color: #fda14c;
+        }
+        
+        .navbar {
+    background-color: #ffffff;  /* Color de fondo del navbar */
+    color: #000000;  /* Color del texto */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar-brand img {
+    height: auto;
+    width: 150px;  /* Ajusta el tamaño del logo */
+}
+
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: #000000; 
+}
+
+.user-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.dropdown-menu {
+    display: none;  
+    position: absolute;
+    right: 0;
+    background-color: #fff;  
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* Sombra */
+    z-index: 1;
+    border-radius: 5px;
+    min-width: 160px;  /* Ancho mínimo del menú */
+    text-align: left;
+}
+
+.dropdown-menu a {
+    color: #000000;  /* Color del texto de los enlaces */
+    padding: 10px 15px;
+    display: block;
+    text-decoration: none;
+    border-bottom: 1px solid #000000;  /* Línea divisoria entre opciones */
+}
+
+.dropdown-menu a:hover {
+    background-color: #ff4c00;  /* Color de fondo al pasar el ratón */
+}
+
+.user-dropdown:hover .dropdown-menu {
+    display: block;  /* Mostrar el dropdown al pasar el ratón */
+}
+
+.user-dropdown .dropdown-menu a:last-child {
+    border-bottom: none;  /* Quita la línea inferior del último enlace */
+}
+
+</style>
+
+
+<script> /* script para la nav */
+    document.addEventListener("DOMContentLoaded", function() {
+        const userDropdown = document.querySelector('.user-name');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+
+        userDropdown.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('show');  // Añade o quita la clase 'show' al hacer clic
+        });
+
+        // Cerrar el dropdown si se hace clic fuera de él
+        window.addEventListener('click', function(event) {
+            if (!userDropdown.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.classList.remove('show');
+            }
+        });
+    });
+
+</script>
+
+</body>
+</html>

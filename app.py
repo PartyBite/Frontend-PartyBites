@@ -96,5 +96,38 @@ def logout():
     return redirect(url_for('home'))
 
 
+@app.route('/bebidas')
+def bebidas():
+    if 'loggedin' in session:
+        nombre = session['nombre']  # Obtenemos el nombre del usuario logueado
+
+        # Consulta para obtener las bebidas alcohólicas
+        cursor = mysql.connection.cursor()
+        cursor.execute("SELECT nombre, precio, stock, image_url, descripcion FROM Producto WHERE idCategoria = 1")
+        bebidas = cursor.fetchall()
+        cursor.close()
+
+        # Renderiza la página de bebidas con los datos obtenidos y el nombre del usuario
+        return render_template('bebidas.html', bebidas=bebidas, nombre=nombre)
+    else:
+        return redirect(url_for('home'))  # Redirige al home si no está logueado
+
+
+
+@app.route('/agregar_carrito', methods=['POST'])
+def agregar_carrito():
+    nombre_bebida = request.form['nombre']
+
+    # Aquí puedes manejar la lógica de agregar al carrito (sesión, base de datos, etc.)
+    # Ejemplo simple usando la sesión para almacenar los productos en el carrito
+    if 'carrito' not in session:
+        session['carrito'] = []
+
+    session['carrito'].append(nombre_bebida)
+    flash(f'{nombre_bebida} ha sido agregado al carrito.')
+    
+    return redirect(url_for('bebidas'))
+
+
 if __name__ == '__main__':
     app.run(debug=True)
